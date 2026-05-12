@@ -157,7 +157,7 @@
 <div class="container" id="resume">
     <header>
         <div class="header-row">
-            <img src="profile.jpg" alt="Lau Ka Ming" class="profile-pic">
+            <img src="profile.jpg?v=2" alt="Lau Ka Ming" class="profile-pic">
             <div class="header-text">
                 <h1>LAU KA MING</h1>
                 <div class="contact-info">
@@ -271,11 +271,12 @@ function downloadPDF() {
     btn.textContent = 'Generating...';
     var element = document.getElementById('resume');
     var opt = {
-        margin:       0.5,
+        margin:       0.4,
         filename:     'Lau_Ka_Ming_Resume.pdf',
         image:        { type: 'jpeg', quality: 0.98 },
-        html2canvas:  { scale: 2, useCORS: true },
-        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' }
+        html2canvas:  { scale: 1.5, useCORS: true },
+        jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
+        pagebreak:    { mode: 'avoid-all' }
     };
     html2pdf().set(opt).from(element).save().then(function() {
         btn.disabled = false;
