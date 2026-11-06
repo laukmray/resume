@@ -13,7 +13,7 @@
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
+            line-height: 1.45;
             color: var(--text-color);
             background-color: var(--bg-color);
             margin: 0;
@@ -21,16 +21,16 @@
         }
         .container {
             max-width: 900px;
-            margin: 40px auto;
+            margin: 24px auto;
             background: #fff;
-            padding: 40px;
+            padding: 32px 36px;
             border-radius: 8px;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         header {
             border-bottom: 2px solid var(--primary-color);
-            padding-bottom: 20px;
-            margin-bottom: 30px;
+            padding-bottom: 16px;
+            margin-bottom: 18px;
             text-align: center;
         }
         h1 {
@@ -45,11 +45,21 @@
         h2 {
             color: var(--secondary-color);
             border-bottom: 1px solid #eee;
-            padding-bottom: 10px;
-            margin-top: 30px;
+            padding-bottom: 6px;
+            margin-top: 18px;
         }
         .section-content {
-            margin-bottom: 20px;
+            margin-bottom: 14px;
+        }
+        h2,
+        .job-title,
+        .company-date {
+            break-after: avoid;
+            page-break-after: avoid;
+        }
+        li {
+            break-inside: avoid;
+            page-break-inside: avoid;
         }
         .job-title {
             font-weight: bold;
@@ -59,15 +69,19 @@
         .company-date {
             display: flex;
             justify-content: space-between;
+            gap: 16px;
             color: #555;
             font-style: italic;
             margin-bottom: 10px;
+        }
+        .company-date span:last-child {
+            flex-shrink: 0;
         }
         ul {
             padding-left: 20px;
         }
         li {
-            margin-bottom: 8px;
+            margin-bottom: 5px;
         }
         .skills-container {
             display: flex;
@@ -105,10 +119,8 @@
         }
         /* PDF download button */
         #downloadBtn {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            z-index: 1000;
+            display: block;
+            margin: 20px 20px 0 auto;
             background: var(--secondary-color);
             color: #fff;
             border: none;
@@ -130,8 +142,19 @@
             #downloadBtn {
                 display: none;
             }
+            body {
+                background: #fff;
+            }
+            .container {
+                margin: 0;
+                box-shadow: none;
+                max-width: none;
+            }
         }
         @media (max-width: 600px) {
+            #downloadBtn {
+                margin: 10px;
+            }
             .container {
                 margin: 10px;
                 padding: 20px;
@@ -171,29 +194,25 @@
     <section>
         <h2>About Me</h2>
         <p class="section-content">
-            Senior R&D Mechanical Engineer | 8+ Years Exp. Currently innovating at the Multi-scale Medical Robotics Center, advancing medical hardware from concept to clinical validation.<br><br>
-            Core: Medical Robotics, Electro-Mechanical Design, Thermal Management.<br>
-            Tech: SolidWorks, Sensor/MCU Integration, Advanced Prototyping (FDM/SLA/SLS).<br>
-            Compliance: ISO 13485, ISO 10993 & 14971 guidelines.<br>
-            Impact: Led cross-functional teams to deliver devices used in active in-vivo trials.
+            Mechatronics R&D engineer with 9+ years of experience, developing surgical-robotics hardware at the Multi-Scale Medical Robotics Center (MRC). I take electromechanical devices from concept and prototyping to hardware used in active clinical studies, working with clinicians, firmware, and software engineers. Core tools are SolidWorks, Creo, STM32 sensor integration, and FDM, SLA, and SLS prototyping. Mechanical design and builds are controlled under an ISO 13485 quality system, with biocompatibility and risk inputs to ISO 10993 and ISO 14971.
         </p>
     </section>
 
     <section>
-        <h2>Working Experience</h2>
+        <h2>Experience</h2>
         
         <div class="section-content">
             <div class="job-title">Research Engineer</div>
             <div class="company-date">
-                <span>Multi-scale Medical Robotics Center Limited</span>
+                <span>Multi-Scale Medical Robotics Center Limited (MRC)</span>
                 <span>Mar 2024 - Present</span>
             </div>
             <ul>
-                <li>Clinical Impact & Mechanical Design: Spearheaded the mechanical development of a Magnetic Countertraction System for Endoscopic Submucosal Dissection (ESD). Designed a novel magnetic retractor endoclip and a dynamic robotic arm vehicle. Successfully advanced the system from concept to active human clinical trials, validating its performance across a series of in-vivo patient cases to significantly enhance surgical visualization and efficiency.</li>
-                <li>Mechatronics & Sensor Integration: Pioneering a first-in-class Single-use Magnetically Actuated Soft-tethered Endoscope. Engineered a multifunctional control handle and designed the data acquisition architecture, successfully bridging Hall effect sensors and MPU6050 via STM32 MCU to deliver real-time spatial data to the software team for automated magnetic driving.</li>
-                <li>Design for Manufacturing (DFM) & Assembly (DFA): Led 3D hardware design and rapid prototyping for a Novel Transperineal Prostate Biopsy Robotic System. Overcame complex tolerance stack-up and mechanical integration challenges involving non-standard precision metal components (kinematics, linear guides). Currently driving next-gen UX optimization to achieve a highly compact footprint for constrained operating rooms.</li>
-                <li>Cross-Functional AI Hardware Development: Collaborating on an Intelligent Insufflation and Smoke Evacuation System. Translating complex laparoscopic workflows into hardware specifications to support an ADRC control algorithm, integrating AI vision and pressure sensors for dynamic pneumoperitoneum balance.</li>
-                <li>Commercialization & Regulatory Compliance: Driving R&D execution with a strong focus on clinical translation, ensuring all mechanical designs and prototyping phases align with critical medical device standards, including ISO 13485, ISO 10993, ISO 14971, and IEC 60601.</li>
+                <li>Designed a magnetic retractor endoclip and a robotic-arm vehicle for a countertraction system used in endoscopic submucosal dissection (ESD), taking the hardware from concept to human clinical cases and supporting the surgical team during evaluation.</li>
+                <li>Designed the control handle and sensing path for a single-use magnetically actuated soft-tethered endoscope, reading Hall-effect sensors and an MPU6050 on an STM32 and passing real-time pose to software for magnetic driving.</li>
+                <li>Led mechanical design and rapid prototyping of a transperineal prostate-biopsy robot, resolving tolerance stack-up across custom kinematics and linear guides. The next revision is being packaged for a smaller operating-room footprint.</li>
+                <li>Translated laparoscopic insufflation and smoke-evacuation workflows into hardware requirements for an active disturbance rejection control (ADRC) loop, including interfaces for vision and pressure sensors.</li>
+                <li>Carried out mechanical design and prototyping under the ISO 13485 quality system, and prepared biocompatibility and risk-management inputs for ISO 10993 and ISO 14971.</li>
             </ul>
         </div>
 
@@ -204,9 +223,9 @@
                 <span>Aug 2022 - Jan 2024</span>
             </div>
             <ul>
-                <li>Design and build the next-generation robotics equipment, ensuring functionalities, mechanical structure, and performance meet expectations.</li>
-                <li>Prepare 3D design and 2D drawings for prototyping, tool making, and procurement.</li>
-                <li>Work closely with the Quality team to develop internal quality control and production test plans, ensuring compliance with ISO standards.</li>
+                <li>Designed and built next-generation disinfection robots so the mechanical structure and performance met specification.</li>
+                <li>Prepared 3D models and 2D drawings for prototypes, tooling, and procurement.</li>
+                <li>Worked with Quality on in-process checks and production test plans aligned with ISO requirements.</li>
             </ul>
         </div>
 
@@ -217,9 +236,8 @@
                 <span>Jul 2021 - Jul 2022</span>
             </div>
             <ul>
-                <li>Proceeded with mechanical design utilizing Creo.</li>
-                <li>Conducted design improvement verification and troubleshooting.</li>
-                <li>Prepared engineering documents and provided customer service and support.</li>
+                <li>Designed power-supply mechanics in Creo, then verified design changes and troubleshot mechanical issues.</li>
+                <li>Prepared engineering documents and supported customers on mechanical-design questions.</li>
             </ul>
         </div>
 
@@ -230,9 +248,9 @@
                 <span>Dec 2016 - Jun 2021</span>
             </div>
             <ul>
-                <li>Defined new product concepts for the cooling product portfolio, analyzed theoretical performance, and validated real performance on prototypes.</li>
-                <li>Communicated with engineers to transform concepts into manufacture-able products.</li>
-                <li>Prepared and reviewed technical documentation to ensure smooth mass production starts.</li>
+                <li>Defined new cooling-product concepts, compared calculated thermal performance with prototype tests, and released designs for mass production.</li>
+                <li>Worked with engineering to turn those concepts into manufacturable parts.</li>
+                <li>Prepared and reviewed technical documents so production could start with the design closed.</li>
             </ul>
         </div>
     </section>
@@ -242,7 +260,7 @@
         <div class="section-content">
             <div class="job-title">MSc Mechanical Engineering (Product Development and Analysis)</div>
             <div class="company-date">
-                <span>The Hong Kong Polytechnic University</span>
+                <span>The Hong Kong Polytechnic University (part-time)</span>
                 <span>2017 - 2020</span>
             </div>
         </div>
@@ -259,13 +277,15 @@
         <h2>Expertise & Skills</h2>
         <div class="skills-container section-content">
             <span class="skill-tag">Mechanical Design</span>
-            <span class="skill-tag">Research & Development</span>
-            <span class="skill-tag">3D Modeling (Solidworks / Creo)</span>
-            <span class="skill-tag">Prototyping & 3D Printing</span>
+            <span class="skill-tag">Medical Robotics</span>
+            <span class="skill-tag">SolidWorks</span>
+            <span class="skill-tag">Creo</span>
+            <span class="skill-tag">STM32 & Sensors</span>
+            <span class="skill-tag">DFM / DFA</span>
+            <span class="skill-tag">FDM / SLA / SLS</span>
+            <span class="skill-tag">Thermal Design</span>
+            <span class="skill-tag">ISO 13485 / 10993 / 14971</span>
             <span class="skill-tag">Technical Documentation</span>
-            <span class="skill-tag">ISO 13485 / 10993 Compliance</span>
-            <span class="skill-tag">Quality Assurance</span>
-            <span class="skill-tag">Cross-functional Collaboration</span>
         </div>
     </section>
     </div>
@@ -273,6 +293,14 @@
 <script>
 function downloadPDF() {
     var btn = document.getElementById('downloadBtn');
+    function resetBtn() {
+        btn.disabled = false;
+        btn.textContent = 'Download PDF';
+    }
+    if (typeof html2pdf !== 'function') {
+        btn.textContent = 'PDF library failed to load';
+        return;
+    }
     btn.disabled = true;
     btn.textContent = 'Generating...';
     var element = document.getElementById('resume');
@@ -282,12 +310,13 @@ function downloadPDF() {
         image:        { type: 'jpeg', quality: 0.98 },
         html2canvas:  { scale: 1.5, useCORS: true },
         jsPDF:        { unit: 'in', format: 'a4', orientation: 'portrait' },
-        pagebreak:    { mode: 'avoid-all' }
+        pagebreak:    { mode: ['css', 'legacy'], avoid: ['.section-content', 'h2', 'header'] }
     };
-    html2pdf().set(opt).from(element).save().then(function() {
-        btn.disabled = false;
-        btn.textContent = 'Download PDF';
-    });
+    try {
+        html2pdf().set(opt).from(element).save().then(resetBtn).catch(resetBtn);
+    } catch (err) {
+        resetBtn();
+    }
 }
 </script>
 </body>
